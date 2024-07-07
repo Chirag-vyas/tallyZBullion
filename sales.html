@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <title>Sales Entry</title>
+  </head>
+  <style>
+    li:hover {
+      cursor: pointer;
+      background-color: #71717a;
+    }
+
+    label {
+      font-size: small;
+    }
+
+    /* #ledgerList{
+      margin-bottom: 96rem;
+    } */
+  </style>
+  <body class="bg-white h-auto">
+    <div class="bg-gray-900 flex flex-col justify-center items-center h-auto">
+      <!-- Side panel -->
+      <div
+        class="w-full h-1/8 rounded-t-lg bg-gray-900 text-white px-8 pt-2 flex justify-between"
+      >
+        <div class="flex flex-row justify-between mb-2">
+          <a id="dashboardBtn" href="dashboard.html"
+            ><i class="fas fa-arrow-left mb-2"></i
+          ></a>
+        </div>
+        <div class="flex justify-end text-xl font-bold mb-2"><h3>Sale</h3></div>
+      </div>
+      <div class="bg-gray-900 px-8 rounded-b-lg h-screen items-center w-full">
+        <!-- <div class="bg-white px-8 shadow-2xl rounded-b-lg w-1/2 md:h-2/3 md:w-2/3 md:h-2/3 lg:w-1/2 h-auto"> Changed height to h-auto for responsiveness -->
+        <form class="bg-blue-100 relative flex-grow px-8 py-8 w-full">
+          <!-- Closing section -->
+          <div id="closingValues" class="flex justify-end text-xl">
+            <div
+              id="closingGold"
+              class="h-12 py-2 text-yellow-500 text-right rounded-lg mt-1 mr-8"
+              style="width: auto"
+            ></div>
+            <div
+              id="closingSilver"
+              class="h-12 py-2 text-gray-500 text-right rounded-lg mt-1 mr-8"
+              style="width: auto"
+            ></div>
+            <div
+              id="closingCash"
+              class="h-12 py-2 text-green-500 text-right rounded-lg mt-1 border"
+              style="width: auto"
+            ></div>
+          </div>
+          <div class="grid grid-cols-6 gap-4 sm:gap-2">
+            <div class="mb-4 col-span-2 col-start-1">
+              <label for="saleType" class="block font-medium mb-1">Type</label>
+              <select
+                id="saleType"
+                name="saleType"
+                class="w-full border rounded-md py-2 px-3 bg-blue-100"
+              >
+                <option value="">Select Sale Type</option>
+                <option value="Cash">Cash</option>
+                <option value="Bill">Bill</option>
+                <option value="Credit">Credit</option>
+              </select>
+            </div>
+            <div class="mb-4 col-span-2">
+              <label for="date" class="block font-medium mb-1">Date</label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                class="w-full border rounded-md py-2 px-3 bg-blue-100"
+              />
+            </div>
+
+            <div class="mb-4 col-span-2 relative">
+              <label for="name" class="block font-medium mb-1">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="w-full border rounded-md py-2 px-3 bg-blue-100"
+                autocomplete="off"
+                oninput="filterLedgers(event)"
+              />
+              <div class="relative">
+                <ul
+                  id="ledgerList"
+                  class="absolute z-10 w-full ledgerHeight overflow-x-auto py-2 bg-blue-500 text-white border border-gray-300 rounded-lg mt-4 hidden"
+                ></ul>
+              </div>
+            </div>
+
+            <!-- <div class="relative w-64">
+                  <input
+                    type="text"
+                    id="ledgerSearch"
+                    class="border border-gray-300 rounded py-2 px-4 outline-none w-full"
+                    placeholder="Search Ledger"
+                    autocomplete="off"
+                    oninput="filterLedgers(event)"
+                    onkeydown="handleKeyPress(event)"
+                  />
+                  <ul
+                    id="ledgerList"
+                    class="absolute z-10 w-full py-2 bg-white border border-gray-300 rounded-t-lg mt-1 hidden"
+                  >
+                   
+                  </ul>
+                </div> -->
+
+            <div class="mb-4 col-span-2">
+              <label for="items" class="block font-medium mb-1">Items</label>
+              <select
+                id="items"
+                name="items"
+                class="w-full border rounded-md py-2 px-3 bg-blue-100"
+              >
+                <option value="">Select item</option>
+                <option value="Fine-Gold-Sale">Fine gold</option>
+                <option value="Fine-Silver-Sale">Fine silver</option>
+              </select>
+            </div>
+            <div class="mb-4 col-span-2">
+              <label for="fine-weight" class="block font-medium mb-1"
+                >Fine weight</label
+              >
+              <input
+                type="number"
+                id="fine-weight"
+                name="fine-weight"
+                class="w-full col-span-2 border rounded-md py-2 px-3 bg-blue-100"
+                placeholder="gms"
+              />
+            </div>
+            <div class="mb-4 col-span-2">
+              <label for="rate" class="block font-medium mb-1">Rate</label>
+              <input
+                type="number"
+                id="rate"
+                name="rate"
+                class="w-full border rounded-md py-2 px-3 bg-blue-100"
+                placeholder="current"
+              />
+            </div>
+            <div class="mb-4 col-span-2">
+              <label for="total" class="block font-medium mb-1">Total</label>
+              <input
+                type="number"
+                id="total"
+                name="total"
+                class="w-full border rounded-md py-2 px-3 bg-blue-100"
+                placeholder=""
+              />
+            </div>
+            <div class="mb-4 col-span-2">
+              <label for="narration" class="block font-medium mb-1"
+                >Narration</label
+              >
+              <input
+                type="text"
+                id="narration"
+                name="narration"
+                class="w-full border rounded-md py-2 px-3 bg-blue-100"
+                placeholder=""
+              />
+            </div>
+            <!-- <div class="mb-4 col-span-2">
+                  <label for="amount" class="block font-medium mb-1">Amount Received</label>
+                  <input type="number" id="amount" name="amount" class="w-full border rounded-md py-2 px-3" placeholder="rupees">
+                </div>
+                <div class="mb-4 col-span-1">
+                  <label for="outstanding" class="block font-medium mb-1">Outstanding</label>
+                  <input type="number" id="outstanding" name="outstanding" class="w-full border rounded-md py-2 px-3" placeholder="credit">
+                </div>
+                <div class="mb-4 col-span-1">
+                  <label for="advance" class="block font-medium mb-1">Advance</label>
+                  <input type="number" id="advance" name="advance" class="w-full border rounded-md py-2 px-3" placeholder="credit">
+                </div> -->
+          </div>
+          <div class="py-2 flex justify-end">
+            <h3 class="text-xl font-semibold my-2 mx-4">Total:</h3>
+            <p id="finalAmount" class="text-xl font-semibold my-2"></p>
+          </div>
+
+          <div class="flex justify-between">
+            <a
+              href="showSales.html"
+              class="font-medium text-sm hover:bg-blue-500 rounded-md py-2 px-4 hover:text-white"
+              >Show all</a
+            >
+            <button
+              id="submitBtn"
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md"
+            >
+              Submit
+            </button>
+          </div>
+          <div
+            id="status-bar"
+            class="fixed top-0 left-0 w-full text-white p-2 text-center hidden"
+          >
+            <span id="status-message" class="text-md font-medium"></span>
+          </div>
+          <!-- <div
+            id="closingBox"
+            class="absolute right-0 top-0 z-10 w-1/5 h-12 py-2 text-black text-right rounded-lg mt-1 mr-8"
+          ></div> -->
+        </form>
+      </div>
+    </div>
+    <script src="sales.js"></script>
+  </body>
+</html>

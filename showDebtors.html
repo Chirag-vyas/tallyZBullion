@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="output.css" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <title>All Debtors</title>
+</head>
+<body class="bg-gray-900">
+    <div class="bg-gray-900 flex flex-col justify-center items-center h-screen">
+        <!-- Side panel -->
+        <div class="w-3/4 h-1/8 shadow-2xl rounded-t-lg bg-white px-8 pt-8 pb-4 mt-2 flex justify-between">
+          <div class="flex flex-row justify-between mb-4"><a id="dashboardBtn" href="balanceSheet.html"><i class="fas fa-arrow-left mb-4"></i></a></div>
+          <div class="mb-4">
+            <input
+              type="text"
+              id="searchDebtor"
+              class="w-full border rounded-md py-2 px-3"
+              placeholder="Search Debtors..."
+            >
+          </div>
+          
+          <div class="flex justify-end text-xl font-bold mb-4"><h3>Debtors</h3></div>          
+        </div>      
+        <div class="bg-white px-8 shadow-2xl rounded-b-lg w-3/4 h-5/6">
+            <table class="min-w-full bg-white border divide-y divide-gray-200">
+                <thead>
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Opening Balance</th>
+                    </tr>
+                </thead>
+                <tbody id="debtorsData" class="px-6 py-3 text-sm text-gray-700 bg-white divide-y divide-gray-200">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="showDebtors.js"></script>
+</body>
+</html>
+

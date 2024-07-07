@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <title>Ledger Entry</title>
+  </head>
+  <body class="bg-gray-900 h-auto">
+    <div class="bg-gray-900 flex flex-col justify-center items-center h-auto">
+      <!-- Side panel -->
+      <div
+        class="w-full h-1/8 rounded-t-lg bg-gray-900 text-white px-8 pt-2 flex justify-between"
+      >
+        <div class="flex flex-row justify-between mb-2">
+          <a id="dashboardBtn" href="dashboard.html"
+            ><i class="fas fa-arrow-left mb-2"></i
+          ></a>
+        </div>
+        <div class="flex justify-end text-xl font-bold mb-2">
+          <h3>Add New Ledger</h3>
+        </div>
+      </div>
+      <div class="bg-gray-900 px-8 rounded-b-lg w-full h-screen">
+        <form class="relative flex-grow mb-4 px-8 py-8">
+          <div class="mb-4">
+            <label for="name" class="block font-medium text-gray-700"
+              >Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="py-2 px-3 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm: border rounded-md"
+              required
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="under" class="block font-medium text-gray-700"
+              >Under</label
+            >
+            <select
+              name="under"
+              id="under"
+              class="w-full border rounded-md py-2 px-3"
+            >
+              <option value="Sundry-Debtor">Sundry Debtor</option>
+              <option value="Sundry-Creditor">Sundry Creditor</option>
+              <option value="Cash-in-hand">Cash in hand</option>
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label for="openingBal" class="block font-medium text-gray-700"
+              >Opening Balance</label
+            >
+            <input
+              type="number"
+              id="openingBal"
+              name="openingBal"
+              class="py-2 px-3 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm: border rounded-md"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="dr-cr" class="block font-medium text-gray-700"
+              >Dr/Cr</label
+            >
+            <select
+              name="dr-cr"
+              id="dr-cr"
+              class="w-full border rounded-md py-2 px-3"
+            >
+              <option value="Debit">Debit</option>
+              <option value="Credit">Credit</option>
+            </select>
+          </div>
+
+          <div class="flex justify-between mt-8">
+            <a
+              href="showLedgers.html"
+              class="font-medium text-sm hover:bg-blue-500 rounded-md py-2 px-4 hover:text-white"
+              >Show all</a
+            >
+            <button
+              id="submitBtn"
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md"
+            >
+              Submit
+            </button>
+          </div>
+
+          <div
+            id="status-bar"
+            class="fixed top-0 left-0 w-full text-white p-2 text-center hidden"
+          >
+            <span id="status-message" class="text-md font-medium"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="ledger.js"></script>
+  </body>
+</html>

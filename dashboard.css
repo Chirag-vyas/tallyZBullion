@@ -1,0 +1,44 @@
+/* dashboard.css */
+body {
+    overflow: hidden;
+    background-color:  #172554;
+}
+
+.flex {
+    overflow: hidden; 
+}
+
+.card {
+    transition: transform 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    
+  }
+
+#tag{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+}  
+
+.tagName {
+  font-size: xx-small;
+}
+
+#company{
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+#stock{
+  align-items: center;
+  text-align: center;
+}
+
+.mt-3{
+  margin-top: 1rem;
+}

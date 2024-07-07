@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <title>Settings</title>
+  </head>
+  <body class="bg-gray-900">
+    <div id="settingSections" class="flex justify-between w-full h-full">
+      <div class="absolute top-4 left-0 px-4 text-white mb-4 w-full mr-2">
+        <h1 class="text-end text-xs">open from companies ></h1>
+      </div>
+      <div
+        id="open"
+        class="relative flex flex-col justify-center bg-blue-900 w-1/2 h-screen text-left text-sm py-4"
+      >
+        <!-- <button
+          id="settingsCloseBtn"
+          class="absolute right-2 top-2 px-2 py-2 bg-blue-900 hover:bg-blue-900 hover:text-black rounded-md"
+        >
+          <i class="fa fa-times"></i>
+        </button> -->
+        <div class="absolute top-4 left-0 px-4 text-white mb-4 w-full mr-2">
+          <h1 class="text-end text-xs">create new company +</h1>
+        </div>
+        <div id="newCompanyForm" class="py-1 px-2 w-full mt-5">
+          <div id="companyName" class="px-2">
+            <label
+              for="fromDate"
+              class="block font-medium mb-1 text-xs text-white"
+              >Company Name</label
+            >
+            <input
+              id="companyName"
+              type="text"
+              class="text-md text-black w-full py-1 px-4 rounded-md"
+            />
+          </div>
+          <div id="financialYear" class="flex w-full my-4">
+            <div class="w-full px-2">
+              <label
+                for="fromDate"
+                class="block font-medium mb-1 text-xs text-white"
+                >From</label
+              >
+              <input
+                type="date"
+                id="fromDate"
+                name="fromDate"
+                placeholder="From"
+                class="w-full border rounded-md py-1 px-3 text-xs text-black mb-1"
+              />
+            </div>
+            <div class="w-full px-2">
+              <label
+                for="toDate"
+                class="block font-medium mb-1 text-xs text-white"
+                >To</label
+              >
+              <input
+                type="date"
+                id="toDate"
+                name="toDate"
+                class="w-full border rounded-md py-1 px-3 text-xs text-black mb-1"
+              />
+            </div>
+          </div>
+          <div id="button" class="w-full mx-2 flex justify-end px-2">
+            <button
+              id="createCompanyBtn"
+              class="my-8 mx-2 py-3 mt-5 px-3 text-xs bg-gray-900 border hover:bg-gray-900 hover:text-gray-700"
+            >
+              create
+            </button>
+          </div>
+        </div>
+
+        <!-- <button id="backup" class="bg-gray-900">back up</button>
+  <button id="restore" class="bg-gray-900">restore</button> -->
+        <!-- <button id="changePassword" class="bg-gray-900">import data</button>
+  <button id="changePassword" class="bg-gray-900">import/export</button> -->
+
+        <!-- <button id="newYear" class="bg-gray-900">new financial year</button> -->
+        <!-- <button id="changePassword" class="bg-gray-900">change password</button> -->
+
+        <!-- <button id="reset" class="bg-gray-900">factory reset</button> -->
+      </div>
+    </div>
+  </body>
+  <script src="settings.js"></script>
+</html>

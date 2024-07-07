@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="output.css" rel="stylesheet" />
+    <title>Splash Screen</title>
+    <style>
+      body {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        opacity: 0; /* Start with zero opacity */
+        animation: fadeIn 1s ease-in-out forwards; /* Fade-in animation */
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 rounded-md">
+    <img src="./TallyZ-icon.png" style="height: 300px; width: 300px" alt="" />
+  </body>
+</html>

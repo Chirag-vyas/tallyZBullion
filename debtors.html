@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <title>Day Book</title>
+  </head>
+  <style>
+    .margin {
+      margin-left: 8rem;
+      margin-top: 4rem;
+    }
+    #top-table {
+      margin-bottom: 96rem;
+    }
+    /* .marginTable{
+
+    margin-right: 3rem;
+} */
+
+    .footer-table {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+
+      width: 100%;
+      padding: 0rem 3rem 0rem 2rem;
+    }
+
+    #opening,
+    #total,
+    #closing {
+      font-size: x-small;
+    }
+
+    label {
+      font-size: small;
+    }
+
+    /* .margin-left{
+    margin-left: 5rem;
+} */
+
+    /* .padd{
+    margin-left: 12rem;
+} */
+
+    /* .sort{
+    display: flex;
+    justify-content: space-between;
+} */
+
+    /* #opening,#total,#closing{
+    font-size: x-small;
+} */
+  </style>
+  <body class="bg-blue-100">
+    <div
+      class="bg-blue-100 flex flex-col justify-start items-center h-screen relative"
+    >
+      <!-- Side panel -->
+      <div
+        class="w-full h-1/8 rounded-t-lg bg-blue-100 px- flex justify-between"
+      >
+        <div
+          class="flex jusify-start items-center w-full bg-blue-100 mb-4 mt-4"
+        >
+          <div class="flex flex-row justify-between px-4 mx-4">
+            <a
+              id="dashboardBtn"
+              href="books.html"
+              class="hover:bg--500 rounded-md py-1"
+              ><i class="fas fa-arrow-left"></i
+            ></a>
+          </div>
+
+          <div
+            id="buttons"
+            class="flex justify-start px-2 text-center items-center text-xs bg- w-1/3 font-bold"
+          >
+            <a
+              href="books.html"
+              id="booksBtn"
+              class="bg-blue-100 hover:bg-blue-500 text-black hover:text-white hover:font-bolds px-2 py-1 mr-2 rounded-md"
+              >transactions</a
+            >
+
+            <a
+              id="debtorsBtn"
+              class="bg-blue-500 text-white px-2 py-1 mx-1 rounded-md"
+              >debtors</a
+            >
+
+            <a
+              href="creditors.html"
+              class="bg-blue-100 hover:bg-blue-500 text-gray-700 hover:text-black hover:text-white hover:font-bolds px-2 py-1 rounded-md"
+              >creditors</a
+            >
+          </div>
+          <div class="flex w-full justify-end items-center bg-blue-100"></div>
+        </div>
+      </div>
+      <!-- transactions table starts here -->
+
+      <!-- debtors table starts here -->
+      <div
+        id="debtors-table"
+        class="bg-blue-100 px-8 shadow-2xl rounded-b-lg w-full h-5/6 overflow-x-auto"
+      >
+        <table id="top-table" class="w-full border divide-x divide-gray-200">
+          <thead>
+            <tr class="bg-blue-500 text-white sticky top-0">
+              <th
+                class="w-1/12 border-gray-200 px-3 py-3 text-left text-xl font-medium uppercase tracking-wider divide-x divide-gray-900"
+              >
+                particulars
+              </th>
+              <th
+                class="w-2/12 border-gray-200 px-3 py-3 text-left text-xl font-medium uppercase tracking-wider divide-x divide-gray-900"
+              ></th>
+              <th
+                class="w-1/2 border-r border-gray-200 px-6 py-3 text-left text-xl font-medium uppercase tracking-wider divide-x divide-gray-900"
+              ></th>
+              <th
+                class="w-1/12 border-r border-gray-200 text-center text-xl font-medium uppercase tracking-wider divide-x divide-gray-900"
+              >
+                Debit
+              </th>
+              <th
+                class="w-1/12 border-r border-gray-200 text-center text-xl font-medium uppercase tracking-wider"
+              >
+                Credit
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            id="debtorsData"
+            class="text-sm text-gray-700 bg-blue-100 border-gray-300"
+          >
+            <!-- Data will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+      <!-- creditors table starts here -->
+      <div
+        id="creditors-table"
+        class="hidden bg-blue-100 px-8 shadow-2xl rounded-b-lg w-full h-5/6 overflow-x-auto"
+      >
+        <table id="top-table" class="w-full border divide-x divide-gray-200">
+          <thead>
+            <tr class="bg-blue-500 text-white sticky top-0">
+              <th
+                class="w-1/12 border-gray-200 px-3 py-3 text-left text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"
+              >
+                Particulars
+              </th>
+              <th
+                class="w-2/12 border-gray-200 px-3 py-3 text-left text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"
+              ></th>
+              <th
+                class="w-1/2 border-r border-gray-200 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"
+              ></th>
+              <th
+                class="w-1/12 border-r border-gray-200 text-center text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"
+              >
+                Debit
+              </th>
+              <th
+                class="w-1/12 border-r border-gray-200 text-center text-xs font-medium uppercase tracking-wider"
+              >
+                Credit
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            id="creditorsData"
+            class="text-xs text-gray-700 bg-blue-100 border-gray-300"
+          >
+            <!-- Data will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div
+      id="footerTable"
+      class="footer-table w-full px-8 shadow-2xl rounded-b-lg marginTable absolute rounded-md"
+    >
+      <table class="">
+        <thead class="">
+          <tr
+            class="bg-blue-800 text-white grid lg:grid-cols-10 items-center md:grid-cols-6 w-full"
+          >
+            <!-- <th class="w-1/12 px-3 py-3 text-left text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"></th> -->
+            <!-- <th class="w-2/12 px-3 py-3 text-left text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"></th> -->
+            <th
+              id="opening"
+              class="lg:col-start-8 lg:col-end-9 md:col-start-4 md:col-end-5 px-6 py-3 text-right text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"
+            >
+              opening balance
+            </th>
+            <th
+              id="openingDebit"
+              class="lg:col-start-9 lg:col-end-10 md:col-start-5 md:col-end-6 px-6 py-3 text-right lg:text-xs md:text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"
+            ></th>
+            <th
+              id="openingCredit"
+              class="lg:col-start-10 lg:col-end-11 md:col-start-6 md:col-end-7 px-6 py-3 text-right lg:text-xs md:text-xs font-medium uppercase tracking-wider"
+            ></th>
+          </tr>
+          <tr
+            class="bg-blue-900 text-white grid lg:grid-cols-10 items-center md:grid-cols-6"
+          >
+            <!-- <th class="w-1/12 px-3 py-3 text-left text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"></th> -->
+            <!-- <th class="w-2/12 px-3 py-3 text-left text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"></th> -->
+            <th
+              id="total"
+              class="lg:col-start-8 lg:col-end-9 md:col-start-4 md:col-end-5 px-6 py-3 text-right text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"
+            >
+              total balance
+            </th>
+            <th
+              id="totalDebit"
+              class="lg:col-start-9 lg:col-end-10 md:col-start-5 md:col-end-6 px-6 py-3 text-right lg:text-xs md:text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"
+            ></th>
+            <th
+              id="totalCredit"
+              class="lg:col-start-10 lg:col-end-11 md:col-start-6 md:col-end-7 px-6 py-3 text-right lg:text-xs md:text-xs font-medium uppercase tracking-wider"
+            ></th>
+          </tr>
+          <tr
+            class="bg-blue-950 text-white grid lg:grid-cols-10 items-center md:grid-cols-6"
+          >
+            <!-- <th class="w-1/12 px-3 py-3 text-left text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"></th> -->
+            <!-- <th class="w-2/12 px-3 py-3 text-right text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"></th> -->
+            <th
+              id="closing"
+              class="lg:col-start-7 lg:col-span-2 md:col-start-4 md:col-end-5 px-6 py-3 text-right text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"
+            >
+              closing balance
+            </th>
+            <th
+              id="closingDebit"
+              class="lg:col-start-9 lg:col-end-10 md:col-start-5 md:col-end-6 px-6 py-3 text-right lg:text-xs md:text-xs font-medium uppercase tracking-wider divide-x divide-gray-900"
+            ></th>
+            <th
+              id="closingCredit"
+              class="lg:col-start-10 lg:col-end-11 md:col-start-6 md:col-end-7 px-6 py-3 text-right lg:text-xs md:text-xs font-medium uppercase tracking-wider"
+            ></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <script src="debtors.js"></script>
+  </body>
+</html>

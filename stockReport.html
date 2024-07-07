@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="output.css" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <title>Stock Report</title>
+</head>
+<body class="bg-gray-900">
+    <div class="bg-gray-900 flex flex-col justify-start items-center h-screen">
+        <!-- Side panel -->
+        <div class="w-full h-1/8 shadow-2xl rounded-t-lg bg-gray-900 text-white px-8 pt-2 flex justify-between">
+            <div class="flex flex-row justify-between mb-2"><a id="dashboardBtn" href="dashboard.html"><i class="fas fa-arrow-left mb-2"></i></a></div>
+            <div class="flex justify-end text-xl font-bold mb-2"><h3>Inventory</h3></div>
+        </div>     
+        <div class="bg-gray-900 px-8 rounded-b-lg w-full h-5/6 items-center justify-center">
+
+            <div class="grid gap-4 text-center justify-center h-4/5 w-full">
+
+                <a href="" class="relative card px-32 bg-gray-800 hover:bg-white hover:text-gray-700 text-white rounded-lg col-start-1 col-end-2 shadow-2xl shadow-black">
+                    <h2 class="absolute top-2 left-2 text-sm font-semibold">Fine Gold</h2>
+                    <p id="fine-gold" class="absolute top-2 right-2 text-2xl"></p>
+                </a>
+
+                <a href="" class="relative card px-32 bg-gray-800 hover:bg-white hover:text-gray-700 text-white rounded-lg col-start-2 shadow-2xl shadow-black">
+                    <h2 class="absolute top-2 left-2 text-sm font-semibold">Fine Silver</h2>
+                    <p id="fine-silver" class="absolute top-2 right-2 text-2xl"></p>
+                </a>
+                <a href="" class="relative card px-32 bg-yellow-500 hover:bg-white hover:text-gray-700 text-dark rounded-lg col-start-1 col-end-3 shadow-2xl shadow-black">
+                    <h2 class="absolute top-2 left-2 text-lg font-semibold">Raw Gold</h2>
+                    <p id="gold-lagadi" class="absolute top-2 right-2 text-3xl"></p>
+                </a>
+
+                <a href="" class="relative card px-32 bg-white text-gray-700 rounded-lg col-start-1 col-end-3 shadow-2xl shadow-black">
+                    <h2 class="absolute top-2 left-2 text-lg font-semibold">Raw Silver</h2>
+                    <p id="silver-gat" class="absolute top-2 right-2 text-3xl"></p>
+                </a>
+
+            </div>
+            <div class="flex flex-row justify-end text-center"><a class="font-medium text-sm hover:bg-yellow-500 rounded-md py-2 px-4 text-white" id="dashboardBtn" href="stock.html"><i class="mx-2 text-white fas fa-plus"></i>Add</a></div>     
+        </div>
+    </div>
+    <script src="stockReport.js">
+    </script>
+</body>
+</html>
+

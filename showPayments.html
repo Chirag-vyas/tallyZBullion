@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <title>All Payments</title>
+  </head>
+  <style>
+    .border-none {
+      border: none;
+    }
+    #top-table {
+      margin-bottom: 96rem;
+    }
+    .focus:focus {
+      border: none;
+    }
+  </style>
+  <body class="bg-gray-900 h-auto">
+    <div class="bg-gray-900 flex flex-col justify-center items-center h-auto">
+      <!-- Side panel -->
+      <div
+        class="w-full h-1/8 rounded-t-lg bg-gray-900 text-white px-8 pt-2 flex justify-between"
+      >
+        <div class="flex justify-between mb-2">
+          <a id="dashboardBtn" href="payments.html"
+            ><i class="fas fa-arrow-left mb-2"></i
+          ></a>
+        </div>
+        <!-- sort by -->
+        <div class="flex justify-between items-center mx-4">
+          <div class="mx-1">
+            <label for="type" class="block font-medium mb-1 text-xl"
+              >Type</label
+            >
+            <select
+              id="type"
+              name="type"
+              class="border rounded-md py-1 text-xl text-black"
+            >
+              <option class="text-black" value="all">All</option>
+              <option value="cash-payment">Cash</option>
+              <option value="bank-payment">Bank</option>
+              <option value="sundry-expenses">Sundry Expenses</option>
+              <option value="salary-account">Salary Account</option>
+            </select>
+          </div>
+          <div class="">
+            <label for="fromDate" class="block font-medium mb-1 text-xl"
+              >From</label
+            >
+            <input
+              type="date"
+              id="fromDate"
+              name="fromDate"
+              placeholder="From"
+              class="w-full border rounded-md py-1 px-3 text-xl text-black mb-1"
+            />
+          </div>
+          <div class="mx-1">
+            <label for="toDate" class="block font-medium mb-1 text-xl"
+              >To</label
+            >
+            <input
+              type="date"
+              id="toDate"
+              name="toDate"
+              class="w-full border rounded-md py-1 px-3 text-xl text-black mb-1"
+            />
+          </div>
+          <div class="text-black ml-2 mt-6 text-xl">
+            <input
+              type="text"
+              id="searchPayments"
+              class="w-full h-1/2 text-xl py-1 px-3 rounded-md bg-white border-none"
+              placeholder="name"
+            />
+          </div>
+          <button id="searchBtn" class="h-1/2 py-1 px-3 text-xl mt-6 mx-1">
+            search
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-gray-900 px-8 mb-2 rounded-b-lg w-full h-1/2 max-h-[800px] overflow-x-auto"
+      >
+        <table
+          id="top-table"
+          class="w-full h-full bg-white border divide-y divide-gray-200"
+        >
+          <thead>
+            <tr class="bg-blue-500 text-white sticky top-0">
+              <th
+                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+              >
+                ID
+              </th>
+              <th
+                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+              >
+                Type
+              </th>
+
+              <th
+                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+              >
+                Date
+              </th>
+              <th
+                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+              >
+                Name
+              </th>
+              <th
+                class="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider"
+              >
+                Amount
+              </th>
+
+              <th
+                class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider"
+              >
+                DELETE
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            id="paymentData"
+            class="px-6 py-3 text-xs text-gray-700 bg-blue-100 divide-y divide-gray-200"
+          >
+            <!-- Data will be inserted here -->
+          </tbody>
+        </table>
+        <div
+          class="flex justify-center gap-4 fixed bottom-0 right-0 left-0 p-4 bg-gray-900"
+        >
+          <div
+            class="w-1/5 flex justify-between items-center py-6 px-4 bg-blue-900 rounded-md"
+          >
+            <h1 class="text-white">total amount</h1>
+            <h1 id="totalAmount" class="mx-4 text-md text-white font-bold"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="showPayments.js"></script>
+  </body>
+</html>

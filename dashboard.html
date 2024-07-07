@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link href="output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+  </head>
+  <style>
+    .arrow {
+      margin-left: 4rem;
+    }
+    #settingSections {
+      margin: 0 auto;
+    }
+    #newCompanyForm {
+      margin: 0 auto;
+    }
+    #databaseList {
+      margin: 0 auto;
+    }
+  </style>
+  <body class="bg-gray-900">
+    <h3 id="tag" class="text-white">
+      Tally-Z <br />
+      <!-- <p class="tagName">Chirag Vyas</p> -->
+    </h3>
+    <h3 id="company" class="text-white text-xs bg--500 rounded-lg">
+      Ambika Jewellers
+    </h3>
+    <button
+      id="settings"
+      class="text-white text-sm bg-gray-900 hover:bg-gray-900 hover:text-gray-700 rounded-lg"
+    >
+      <i class="fa fa-cog"></i>
+    </button>
+    <button
+      id="appCloseBtn"
+      class="text-white text-sm bg-gray-900 hover:bg-gray-900 hover:text-gray-700 rounded-lg"
+    >
+      <i class="fa fa-times"></i>
+    </button>
+    <webview id="settingsView" style="width: 100%; height: 100%"></webview>
+
+    <div
+      id="settingSections"
+      class="hidden relative flex justify-between w-full h-screen bg-blue-900"
+    >
+      <div class="absolute top-4 left-0 px-4 text-white mb-4 w-full mr-2">
+        <h1 class="text-end text-xs">open from companies ></h1>
+      </div>
+
+      <div
+        id="open"
+        class="relative flex flex-col justify-center bg-gray-900 w-full h-full text-left text-sm py-4"
+      >
+        <button
+          id="settingsCloseBtn"
+          class="px-2 py-2 bg-gray-900 hover:bg-gray-900 hover:text-gray-700 text-white rounded-md"
+        >
+          <i class="fa fa-times"></i>
+        </button>
+        <!-- <div class="absolute top-4 left-0 px-4 text-white mb-4 w-full mr-2">
+          <h1 class="text-end text-xs">create new company +</h1>
+        </div> -->
+        <div class="flex flex-col m-4 justify-center items-center p-4">
+          <button id="databaseBackup" class="w-1/3 bg-gray-900 mb-4">
+            <i class="fa fa-upload text-white mr-2"></i>
+            backup
+          </button>
+          <button id="databaseExport" class="w-1/3 bg-gray-900">
+            <i class="fa fa-download text-white mr-2"></i>
+            export
+          </button>
+        </div>
+        <!-- <div
+          id="newCompanyForm"
+          class="relative py-6 px-8 w-1/3 bg-blue-900 rounded-md"
+        >
+          <div class="px-2">
+            <label
+              for="fromDate"
+              class="block font-medium mb-1 text-xs text-white"
+              >Company Name</label
+            >
+            <input
+              id="companyName"
+              type="text"
+              class="text-md text-black w-full py-1 px-4 rounded-md"
+            />
+          </div>
+          <div id="financialYear" class="flex w-full my-4">
+            <div class="w-full px-2">
+              <label
+                for="fromDate"
+                class="block font-medium mb-1 text-xs text-white"
+                >From</label
+              >
+              <input
+                type="date"
+                id="fromDate"
+                name="fromDate"
+                placeholder="From"
+                class="w-full border rounded-md py-1 px-3 text-xs text-black mb-1"
+              />
+            </div>
+            <div class="w-full px-2">
+              <label
+                for="toDate"
+                class="block font-medium mb-1 text-xs text-white"
+                >To</label
+              >
+              <input
+                type="date"
+                id="toDate"
+                name="toDate"
+                class="w-full border rounded-md py-1 px-3 text-xs text-black mb-1"
+              />
+            </div>
+          </div>
+          <div id="button" class="w-full mx-2 flex justify-end px-2">
+            <button
+              id="createCompanyBtn"
+              class="mx-2 py-3 mt-5 px-3 text-xs bg-gray-900 border hover:bg-gray-900 hover:text-gray-700"
+            >
+              create
+            </button>
+          </div>
+        </div>
+        <div
+          id="databaseList"
+          class="relative py-6 px-8 w-1/3 bg-blue-900 rounded-md"
+        ></div> -->
+      </div>
+    </div>
+    <div id="content" class="flex h-screen w-full items-center justify-center">
+      <div
+        class="grid grid-cols-2 gap-4 h-4/6 mt-8 py-3 mx-4 px-10 sm:w-full md:w-2/3 md:h-5/6 lg:w-1/2 lg:h-5/6 md:text-md sm:text-sm"
+      >
+        <a
+          href="books.html"
+          class="card bg-blue-500 hover:bg-blue-900 text-white py-6 px-8 rounded-lg shadow-2xl shadow-black md:text-md sm:text-sm"
+        >
+          <h2 class="lg:text-xl md:text-lg sm:text-md font-semibold mb-2">
+            Ledgers<i class="fas fa-user mx-4"></i>
+          </h2>
+          <p class="text-sm">
+            Prepare financial <br />
+            statements.
+          </p>
+        </a>
+
+        <div class="grid grid-cols-2 gap-2 col-start-2 text-left">
+          <a
+            href="sales.html"
+            class="card bg-green-500 hover:bg-green-900 text-white rounded-lg col-start-1 col-end-2 shadow-2xl shadow-black"
+          >
+            <h2 class="lg:text-sm md:text-sm font-semibold mt-4 px-2">
+              Sales<i class="fas fa-arrow-right mx-4"></i>
+            </h2>
+          </a>
+          <a
+            href="purchases.html"
+            class="card bg-red-500 hover:bg-red-900 text-white rounded-lg col-start-2 col-end-3 shadow-2xl shadow-black"
+          >
+            <h2 class="text-sm font-semibold mt-4 px-2">
+              Purchases<i class="fas fa-arrow-right mx-4"></i>
+            </h2>
+          </a>
+          <a
+            href="receipts.html"
+            class="card bg-green-500 hover:bg-green-900 text-white rounded-lg col-start-1 col-end-2 shadow-2xl shadow-black"
+          >
+            <h2 class="text-sm font-semibold mt-4 px-2">
+              Receipts<i class="fas fa-arrow-right mx-4"></i>
+            </h2>
+          </a>
+          <a
+            href="payments.html"
+            class="card bg-red-500 hover:bg-red-900 text-white rounded-lg col-start-2 col-end-3 shadow-2xl shadow-black"
+          >
+            <h2 class="text-sm font-semibold mt-4 px-2">
+              Payments<i class="fas fa-arrow-right mx-4"></i>
+            </h2>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-6 gap-4 col-start-1 col-end-4 pr-4 text">
+          <a
+            href="P&L.html"
+            class="relative card bg-green-500 hover:bg-gray-900 text-black hover:text-white py-6 px-8 rounded-lg col-start-1 col-span-2 shadow-2xl shadow-black"
+          >
+            <h2 class="text-xs font-semibold mb-2">Cash<i class=""></i></h2>
+            <div class="absolute bottom-0 right-0 mt-2 mb-5 text-right pr-4">
+              <p id="closingBalance" class="text-lg"></p>
+            </div>
+          </a>
+          <a
+            href="goldCredit.html"
+            class="relative card bg-yellow-500 hover:bg-gray-900 hover:text-white text-black py-6 px-8 rounded-lg col-start-3 col-span-2 shadow-2xl shadow-black"
+          >
+            <h2 class="text-xs font-semibold mb-2">Gold<i class=""></i></h2>
+            <div class="absolute bottom-0 right-0 mt-2 mb-2 text-right pr-4">
+              <p id="fine-gold" class="text-lg"></p>
+              <p class="text-xs">gms</p>
+            </div>
+          </a>
+          <a
+            href="silverCredit.html"
+            class="relative card bg-slate-100 hover:bg-gray-900 hover:text-white text-black py-6 px-8 rounded-lg col-start-5 col-span-2 shadow-2xl shadow-black"
+          >
+            <h2 class="text-xs font-semibold mb-2">Silver<i class=""></i></h2>
+            <div class="absolute bottom-0 right-0 mt-2 mb-2 text-right pr-4">
+              <p id="fine-silver" class="text-lg"></p>
+              <p class="text-xs">gms</p>
+            </div>
+          </a>
+          <div class="text-right col-start-6 py-6 h-1/2">
+            <a
+              id="stock"
+              href="stock.html"
+              class="card bg--500 hover:text-gray-700 text-white text-right rounded-lg"
+            >
+              <h2 class="text-lg font-semibold">
+                Inventory<i class="fas fa-arrow-right text-left arrow"></i>
+              </h2>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="dashboard.js"></script>
+</html>
